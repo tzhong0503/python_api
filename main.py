@@ -10,7 +10,7 @@ merchant_keys = {
     "LswE3H5qm": 2,
     "LswE3H5qm": 3,
 }
-
+used_reference_numbers = set()
 
 @app.route('/create_payment_request', methods=['POST'])
 # Create the request body
@@ -21,15 +21,14 @@ def create_payment_request():
     currency = data.get('currency')
     description = data.get('description')
     payment_type = data.get('payment_type')
-    
-    # Generate random reference number
-    reference_number = f"RF{random.randint(1, 999999999):09d}"
-    
+
+    reference_number = generate_unique_reference_number()
+
     # Generate random key index with their corresponding merchant keys
     merchant_key = random.choice(list(merchant_keys.keys()))
     key_index = merchant_keys[merchant_key]
 
-    # If the payment type is credit card then show payment id = 2
+    # If the payment type is credit card then set payment id = 2
     if payment_type == "credit card":
         payment_id = "2"
 
@@ -61,6 +60,14 @@ def create_payment_request():
     }
 
     return jsonify(response)
+
+def generate_unique_reference_number():
+    # Generate a new reference number until it's unique
+    while True:
+        reference_number = f"RF{random.randint(1, 999999999):09d}"
+        if reference_number not in used_reference_numbers:
+            used_reference_numbers.add(reference_number)
+            return reference_number
 
 if __name__ == '__main__':
     app.run(debug=True)
