@@ -1,2 +1,17 @@
-INFO:root:Incoming Data:{'amount': '20.00', 'currency': 'MYR', 'description': 'testing', 'payment_type': 'credit card'}
-INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 13:57:48] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'currency': 'MYR', 'amount': '80.00', 'payment_type': 'credit card'}
+ERROR:root:Validation Error: Missing required fields
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 16:07:21] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 16:07:47] "[31m[1mPOST /create_payment_request HTTP/1.1[0m" 400 -
+INFO:root:Incoming Data: {'currency': 'MYR', 'amount': '80.00', 'payment_type': 'credit card', 'description': 'testing'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 16:07:51] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'currency': 'MYR', 'amount': '55.00', 'payment_type': 'credit card', 'description': 'testing'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 16:08:20] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'currency': 'MYR', 'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 16:08:24] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing'}
+ERROR:root:Validation Error: Missing required fields
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 16:08:27] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 928-919-743
