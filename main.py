@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 import random
 import hashlib
+import logging
 
 app = Flask(__name__)
+
+logging.basicConfig(filename='main.log',level=logging.INFO)
 
 # Merchant keys with their corresponding key index
 merchant_keys = {
@@ -16,6 +19,10 @@ used_reference_numbers = set()
 # Create the request body
 def create_payment_request():
     data = request.json
+
+    logging.info(f"Incoming Data:{data}")   
+
+
     amount = data.get('amount')
     revpay_merchant_key = "MER00000003667"
     currency = data.get('currency')

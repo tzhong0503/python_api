@@ -1,0 +1,2 @@
+INFO:root:Incoming Data:{'amount': '20.00', 'currency': 'MYR', 'description': 'testing', 'payment_type': 'credit card'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 13:57:48] "POST /create_payment_request HTTP/1.1" 200 -
