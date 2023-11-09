@@ -15,3 +15,50 @@ INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.p
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 928-919-743
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 16:20:06] "[31m[1mPOST /create_payment_request HTTP/1.1[0m" 400 -
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 16:20:10] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:07:08] "[31m[1mPOST /create_payment_request HTTP/1.1[0m" 415 -
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:07:11] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 928-919-743
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:08:57] "[31m[1mPOST /create_payment_request HTTP/1.1[0m" 415 -
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:09:00] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:09:03] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:09:04] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:09:05] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:09:05] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:09:06] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 928-919-743
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:24:55] "[31m[1mGET /create_payment_request HTTP/1.1[0m" 405 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:24:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 928-919-743
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 928-919-743
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 928-919-743
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2023 17:31:10] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 928-919-743

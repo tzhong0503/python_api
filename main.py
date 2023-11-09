@@ -2,10 +2,18 @@ from flask import Flask, request, jsonify
 import random
 import hashlib
 import logging
+import mysql.connector
 
 app = Flask(__name__)
 
 logging.basicConfig(filename='main.log', level=logging.INFO)
+
+mysql_config = {
+    'host' : '127.0.0.1',
+    'user' : 'root',
+    'password' : 'root',
+    'database' : 'transaction_status'
+}
 
 # Merchant keys with their corresponding key index
 merchant_keys = {
@@ -54,21 +62,50 @@ def create_payment_request():
     # Hash signature
     signature = hashlib.sha512(signature_value.encode()).hexdigest()
 
+     # MYSQL connection
+    connection = mysql.connector.connect(**mysql_config)
+    cursor = connection.cursor()
+
+    # Insert transaction data into MySQL
+    insert_query = """
+        INSERT INTO transactions (reference_number, amount, currency, description, payment_type, signature)
+        VALUES (%s, %s, %s, %s, %s, %s)
+    """
+    insert_data = (
+            reference_number,
+            amount,
+            currency,
+            description,
+            payment_type,
+            signature,
+    )
+    cursor.execute(insert_query, insert_data)
+    connection.commit()
+
+    # Close the MySQL connection
+    cursor.close()
+    connection.close()
+    
+
     # Create the response body
     response = {
         "Status": "200",
         "Redirect_URL": "https://stg-mpg.revpay-sandbox.com.my/v1/payment",
         "Redirect_Body": {
             "Revpay_Merchant_ID": revpay_merchant_key,
+            "Key_Index": key_index,
+            "Merchant_key" : merchant_key,
             "Payment_ID": payment_id,
             "Reference_Number": reference_number,
             "Amount": amount,
             "Currency": currency,
             "Transaction_Description": description,
-            "Key_Index": key_index,
             "Signature": signature
         }
     }
+
+    
+    
 
     return jsonify(response)
 
