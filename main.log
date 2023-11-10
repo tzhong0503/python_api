@@ -62,3 +62,59 @@ INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.p
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 928-919-743
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 689-764-957
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [10/Nov/2023 10:03:41] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 689-764-957
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 689-764-957
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [10/Nov/2023 10:34:15] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 689-764-957
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 689-764-957
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [10/Nov/2023 12:14:11] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [10/Nov/2023 12:20:51] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 689-764-957
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 689-764-957
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 689-764-957
+INFO:root:Incoming Data: {'amount': '120.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [10/Nov/2023 12:25:22] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '90.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [10/Nov/2023 12:25:27] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '90.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [10/Nov/2023 12:26:33] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '60.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [10/Nov/2023 12:26:36] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:root:Incoming Data: {'amount': '20.00', 'payment_type': 'credit card', 'description': 'testing', 'currency': 'MYR'}
+INFO:werkzeug:127.0.0.1 - - [10/Nov/2023 12:26:39] "POST /create_payment_request HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/zhihongrevenue/Desktop/python/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 689-764-957

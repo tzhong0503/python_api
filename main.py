@@ -80,6 +80,14 @@ def create_payment_request():
             signature,
     )
     cursor.execute(insert_query, insert_data)
+
+    # Insert status data into MYSQL and show initial status as pending based on reference number
+    initial_status = "Pending"
+    status_insert_query = """INSERT INTO status (reference_number,status) VALUES (%s,%s)"""
+    
+    status_insert_data = (reference_number, initial_status) 
+    cursor.execute(status_insert_query, status_insert_data)
+
     connection.commit()
 
     # Close the MySQL connection
@@ -103,10 +111,6 @@ def create_payment_request():
             "Signature": signature
         }
     }
-
-    
-    
-
     return jsonify(response)
 
 def generate_unique_reference_number():
