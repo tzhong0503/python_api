@@ -17,6 +17,7 @@ CREATE TABLE transactions (
 );
 
 CREATE TABLE status (
+    id INT AUTO_INCREMENT PRIMARY KEY,
      reference_number VARCHAR(255) UNIQUE,
      status VARCHAR(255)
      );
