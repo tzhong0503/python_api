@@ -102,7 +102,6 @@ def create_payment_request():
         "Redirect_Body": {
             "Revpay_Merchant_ID": revpay_merchant_key,
             "Key_Index": key_index,
-            "Merchant_key" : merchant_key,
             "Payment_ID": payment_id,
             "Reference_Number": reference_number,
             "Amount": amount,
