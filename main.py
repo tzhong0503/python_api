@@ -93,7 +93,7 @@ def create_payment_request():
     # Close the MySQL connection
     cursor.close()
     connection.close()
-    
+    ''
 
     # Create the response body
     response = {
@@ -110,6 +110,45 @@ def create_payment_request():
             "Signature": signature
         }
     }
+    return jsonify(response)
+
+@app.route('/update_payment_status', methods=['POST'])
+def update_payment_status():
+    data = request.json
+
+    # Log incoming data
+    logging.info(f"Incoming Data for Updating Payment Status: {data}")
+
+    # Validate incoming data
+    validate_data = ['reference_number']
+    if not all(key in data for key in validate_data):
+        logging.error("Validation Error: Missing required fields for updating payment status")
+        return jsonify({"Error": "Missing required fields for updating payment status"})
+
+    reference_number = data['reference_number']
+
+    # Update payment status to success in the database
+    connection = mysql.connector.connect(**mysql_config)
+    cursor = connection.cursor()
+
+    update_query = """
+        UPDATE status
+        SET status = %s
+        WHERE reference_number = %s
+    """
+    update_data = ("Success", reference_number)
+
+    try:
+        cursor.execute(update_query, update_data)
+        connection.commit()
+        response = {"Status": "200", "Message": "Payment status updated to success successfully"}
+    except Exception as e:
+        logging.error(f"Error updating payment status: {e}")
+        response = {"Status": "500", "Error": "Internal Server Error"}
+
+    cursor.close()
+    connection.close()
+
     return jsonify(response)
 
 def generate_unique_reference_number():
