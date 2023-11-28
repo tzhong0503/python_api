@@ -5,7 +5,6 @@ import logging
 import mysql.connector
 
 app = Flask(__name__)
-
 logging.basicConfig(filename='main.log', level=logging.INFO)
 
 mysql_config = {
@@ -18,9 +17,9 @@ mysql_config = {
 # Merchant keys with their corresponding key index
 merchant_keys = {
     "ueY9qi@U4B": 1,
-    "LswE3H5qm": 2,
-    "LswE3H5qm": 3,
+    "LswE3H5qm": [2, 3],  
 }
+
 used_reference_numbers = set()
 
 @app.route('/create_payment_request', methods=['POST'])
@@ -35,30 +34,32 @@ def create_payment_request():
     validate_data = ['amount', 'currency', 'description', 'payment_type']
     if not all(key in data for key in validate_data):
         logging.error("Validation Error: Missing required fields")
-        return jsonify({"Error": "Missing required fields"})
-    
+        return jsonify({"Error": "Missing required fields"}), 422
+
+
     amount = data['amount']
-    revpay_merchant_key = "MER00000003667"
+    revpay_merchant_id = "MER00000003667"
     currency = data['currency']
     description = data['description']
     payment_type = data['payment_type']
     reference_number = generate_unique_reference_number()
 
     merchant_key = random.choice(list(merchant_keys.keys()))
-    key_index = merchant_keys[merchant_key]
+    if isinstance(merchant_keys[merchant_key], list):
+        key_index = random.choice(merchant_keys[merchant_key])
+    else:
+        key_index = merchant_keys[merchant_key]
 
-    # If payment type is credit card then set payment id = 2
-    if payment_type == "credit card":
-        payment_id = "2"
 
     # Calculate signature
     signature_value = (
-        merchant_key +
-        revpay_merchant_key +
-        reference_number +
-        amount +
-        currency
+        str(merchant_key) +
+        str(revpay_merchant_id) +
+        str(reference_number) +
+        str(amount) +
+        str(currency)
     )
+
     # Hash signature
     signature = hashlib.sha512(signature_value.encode()).hexdigest()
 
@@ -93,24 +94,24 @@ def create_payment_request():
     # Close the MySQL connection
     cursor.close()
     connection.close()
-    ''
 
     # Create the response body
+    return_url = "https://devwebsite.revpay.com.my/return" 
     response = {
-        "Status": "200",
-        "Redirect_URL": "https://stg-mpg.revpay-sandbox.com.my/v1/payment",
-        "Redirect_Body": {
-            "Revpay_Merchant_ID": revpay_merchant_key,
-            "Key_Index": key_index,
-            "Payment_ID": payment_id,
+            "Merchant_Key": merchant_key,
+            "Revpay_Merchant_ID": revpay_merchant_id,
             "Reference_Number": reference_number,
+            "Key_Index": key_index,
             "Amount": amount,
             "Currency": currency,
             "Transaction_Description": description,
-            "Signature": signature
-        }
+            "Payment_Type": payment_type,
+            "Signature": signature,
+            "Return_URL": return_url
     }
     return jsonify(response)
+
+
 
 @app.route('/update_payment_status', methods=['POST'])
 def update_payment_status():
